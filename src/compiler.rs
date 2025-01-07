@@ -29,20 +29,29 @@ fn compile_it(package: core::CodePackage) -> Result<core::TestablePackage, &'sta
                 .output()
                 .expect("Failed to execute process rustc");
             println!(
-                "Status: {}\nStdout: {}\nStderr: {}",
+                "rustc compilation:\nCodeFile: {}\nStatus: {}\nStdout: {}\nStderr: {}",
+                package.code_path,
                 output.status,
                 String::from_utf8(output.stdout).expect("not valid utf8"),
                 String::from_utf8(output.stderr).expect("not valid utf8"),
             );
+            if !output.status.success() {
+                return Err("rustc failed.");
+            }
         }
         1 => {
-            let status = Command::new("g++")
+            let output = Command::new("g++")
                 .arg(package.code_path.as_str())
-                .status()
+                .output()
                 .expect("Failed to execute process g++");
-            if status.success() {
-                println!("It is finished.");
-            } else {
+            println!(
+                "g++ compilation:\nCodeFile: {}\nStatus: {}\nStdout: {}\nStderr: {}",
+                package.code_path,
+                output.status,
+                String::from_utf8(output.stdout).expect("not valid utf8"),
+                String::from_utf8(output.stderr).expect("not valid utf8"),
+            );
+            if !output.status.success() {
                 return Err("g++ failed.");
             }
         }
