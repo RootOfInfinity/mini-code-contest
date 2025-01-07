@@ -2,24 +2,24 @@ use std::fs;
 
 #[derive(Debug)]
 pub struct CodePackage {
-    pub codePath: String,
+    pub code_path: String,
     pub sha256: String,
-    pub teamID: String,
-    pub prob_num: String,
+    pub team_id: String,
+    pub prob_num: u32,
 }
 
 #[derive(Debug)]
 pub struct TestablePackage {
-    pub exePath: String,
+    pub exe_path: String,
     pub sha256: String,
-    pub teamID: String,
+    pub team_id: String,
     pub prob_num: u32,
 }
 
 #[derive(Debug)]
 pub struct FinalPackage {
     pub sha256: String,
-    pub teamID: String,
+    pub team_id: String,
     pub prob_num: u32,
     pub solved: bool,
 }

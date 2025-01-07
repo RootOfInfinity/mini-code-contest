@@ -1,8 +1,8 @@
-pub mod tester;
 pub mod compiler;
 pub mod core;
+pub mod tester;
 
 fn main() {
     println!("Hello, world!");
-    tester::look_for_executables();
+    compiler::test_compile();
 }
