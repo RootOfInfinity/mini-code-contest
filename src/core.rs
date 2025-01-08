@@ -14,6 +14,7 @@ pub struct TestablePackage {
     pub sha256: String,
     pub team_id: String,
     pub prob_num: u32,
+    pub run_type: u32,
 }
 
 #[derive(Debug)]
