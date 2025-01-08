@@ -7,6 +7,12 @@ use assert_cmd::Command;
 
 use crate::core;
 
+//plan is to create a json format that has differing catagories and tests
+pub struct Test {
+    input: String,
+    output: String,
+}
+
 ///look for files in test folder "./.env/fileStation" TEMPORARY
 pub fn look_for_executables() -> Option<Vec<core::TestablePackage>> {
     let paths = fs::read_dir("./.env/fileStation").unwrap();
@@ -17,15 +23,6 @@ pub fn look_for_executables() -> Option<Vec<core::TestablePackage>> {
 
     //TODO get er done!
     None
-}
-
-pub fn test_create_executable() -> Result<core::TestablePackage, String> {
-    let sha256id: String =
-        String::from("c8e0583694bb1e0188dbe28fe0d65ac1130723c55f968b6262b906c147f72549");
-    let teamid: String = "lol".to_string();
-    let num_problem: u32 = 0u32;
-
-    todo!()
 }
 
 ///run against testcases
