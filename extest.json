@@ -1,0 +1,21 @@
+{
+  "name": "Example test",
+  "test_num": 1,
+  "description": "Cool description",
+  "testcases": [
+    3, //length AFTER this number
+    {
+      "input": "321321 32152", //what goes into stdin
+      "output": "353473" //what should come out of stdout
+    },
+    {
+      "input": "3214 2324",
+      "output": "5538"
+    },
+    {
+      "input": "1 1", 
+      "output": "2"
+    }
+  ],
+  "required-to-pass": 100 //percentage needed to pass
+}
